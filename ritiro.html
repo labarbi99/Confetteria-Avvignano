@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ordina e Ritira | Confetteria Avvignano, Torino</title>
+<meta name="description" content="Scegli i tuoi gianduiotti e specialità artigianali, prenota il ritiro in bottega a Torino. Ti ricontattiamo per confermare data e orario.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      Confetteria Avvignano
+      <small>Torino &middot; dal 1883</small>
+    </a>
+    <nav class="main-nav" aria-label="Navigazione principale">
+      <ul>
+        <li><a href="index.html">La bottega</a></li>
+        <li><a href="storia.html">La nostra storia</a></li>
+        <li><a href="catalogo.html">Il catalogo</a></li>
+        <li><a href="ritiro.html">Ordina e ritira</a></li>
+        <li><a href="contatti.html">I contatti</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-photo" style="min-height:280px; background-image:url('img/ritiro-hero.jpg');">
+  <div class="hero-photo__content">
+    <p class="eyebrow">Prenota</p>
+    <h1>Ordina e Ritira in Bottega</h1>
+    <p class="lead">Scegli i prodotti che preferisci: ti ricontattiamo per confermare disponibilità e data di ritiro in bottega.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="order-layout">
+
+      <div class="reveal">
+        <h2 class="section-title" style="text-align:left; font-size: 1.5rem;">Seleziona i prodotti</h2>
+        <div class="divider" style="margin: 0 0 1.5rem;"></div>
+
+        <div class="order-item" data-product="Gianduiotti sfusi">
+          <div>
+            <div class="order-item__name">Gianduiotti sfusi</div>
+            <select class="js-variant">
+              <option value="200g">200g — €12,00</option>
+              <option value="300g">300g — €18,00</option>
+              <option value="500g">500g — €30,00</option>
+              <option value="1kg">1kg — €60,00</option>
+            </select>
+          </div>
+          <div class="qty-control">
+            <button type="button" class="js-minus" aria-label="Diminuisci quantità">−</button>
+            <span class="js-qty">0</span>
+            <button type="button" class="js-plus" aria-label="Aumenta quantità">+</button>
+          </div>
+        </div>
+
+        <div class="order-item" data-product="Scatola regalo gianduiotti">
+          <div>
+            <div class="order-item__name">Scatola regalo gianduiotti</div>
+            <select class="js-variant">
+              <option value="150g">150g — €18,00</option>
+              <option value="300g">300g — €28,50</option>
+              <option value="450g">450g — €38,50</option>
+              <option value="600g">600g — €49,00</option>
+              <option value="850g">850g — €64,00</option>
+            </select>
+          </div>
+          <div class="qty-control">
+            <button type="button" class="js-minus" aria-label="Diminuisci quantità">−</button>
+            <span class="js-qty">0</span>
+            <button type="button" class="js-plus" aria-label="Aumenta quantità">+</button>
+          </div>
+        </div>
+
+        <div class="order-item" data-product="Creme spalmabili">
+          <div>
+            <div class="order-item__name">Creme spalmabili</div>
+            <select class="js-variant">
+              <option value="Gianduja">Crema Gianduja — €11,00</option>
+              <option value="Gianduja Fondente">Crema Gianduja Fondente — €11,00</option>
+              <option value="Pistacchio">Crema Pistacchio — €18,00</option>
+            </select>
+          </div>
+          <div class="qty-control">
+            <button type="button" class="js-minus" aria-label="Diminuisci quantità">−</button>
+            <span class="js-qty">0</span>
+            <button type="button" class="js-plus" aria-label="Aumenta quantità">+</button>
+          </div>
+        </div>
+
+        <div class="order-item" data-product="Cri Cri">
+          <div>
+            <div class="order-item__name">Cri Cri</div>
+            <select class="js-variant">
+              <option value="250g">250g — €10,00</option>
+              <option value="500g">500g — €20,00</option>
+              <option value="1kg">1kg — €40,00</option>
+            </select>
+          </div>
+          <div class="qty-control">
+            <button type="button" class="js-minus" aria-label="Diminuisci quantità">−</button>
+            <span class="js-qty">0</span>
+            <button type="button" class="js-plus" aria-label="Aumenta quantità">+</button>
+          </div>
+        </div>
+
+        <p style="font-size:0.85rem; opacity:0.75; margin-top:1.2rem;">
+          Cerchi qualcos'altro? Molte specialità sono disponibili solo in negozio — scrivilo pure nelle note qui a fianco, oppure vieni a scoprirle di persona.
+        </p>
+      </div>
+
+      <div class="order-form-panel reveal" id="pannello-form">
+        <form name="richiesta-ritiro" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="form-ritiro">
+          <input type="hidden" name="form-name" value="richiesta-ritiro">
+          <p style="display:none;"><label>Non compilare: <input name="bot-field"></label></p>
+
+          <input type="hidden" name="riepilogo_prodotti" id="riepilogo_prodotti">
+
+          <label for="nome">Nome e cognome</label>
+          <input type="text" id="nome" name="nome" required>
+
+          <label for="telefono">Telefono</label>
+          <input type="tel" id="telefono" name="telefono" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="data">Data preferita per il ritiro</label>
+          <input type="date" id="data" name="data_preferita" required>
+
+          <label for="orario">Orario preferito</label>
+          <input type="time" id="orario" name="orario_preferito">
+          <p style="font-size:0.78rem; opacity:0.7; margin:0.3rem 0 0;">L'orario esatto verrà confermato da noi via telefono o email.</p>
+
+          <label for="note">Note (allergie, dediche, confezione regalo...)</label>
+          <textarea id="note" name="note" rows="3"></textarea>
+
+          <div class="consent-row">
+            <input type="checkbox" id="consenso" name="consenso_privacy" required>
+            <label for="consenso">
+              Ho letto la <a href="privacy.html">informativa privacy</a> e acconsento al trattamento dei miei dati per gestire questa richiesta di ritiro.
+            </label>
+          </div>
+
+          <button type="submit">Invia richiesta</button>
+        </form>
+
+        <div id="messaggio-conferma" style="display:none; text-align:center;">
+          <p style="font-family: var(--font-display); font-size:1.3rem; color: var(--bordeaux); margin-bottom:0.8rem;">Richiesta ricevuta!</p>
+          <p>Ti ricontatteremo per confermare data e orario.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <strong style="font-family: var(--font-display); font-size:1.2rem; color: var(--avorio);">Confetteria Avvignano</strong><br>
+        Piazza Carlo Felice, 50 — 10121 Torino
+      </div>
+      <div class="social-links" aria-label="Social">
+        <a href="https://www.instagram.com/confetteriaavvignano1883/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 8h-2a2 2 0 0 0-2 2v2H9v3h2v7h3v-7h2.2l.8-3H14v-1.5c0-.6.4-1 1-1h1.5V8z"/></svg>
+        </a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Confetteria+Avvignano+Piazza+Carlo+Felice+50+Torino" target="_blank" rel="noopener" aria-label="Recensioni Google">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 3 14.6 9.2 21.3 9.8 16.2 14.1 17.8 20.7 12 17.1 6.2 20.7 7.8 14.1 2.7 9.8 9.4 9.2"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>&copy; 2026 Confetteria Avvignano — P.IVA 05649330015</span>
+      <span>
+        <a href="privacy.html">Privacy Policy</a> ·
+        <a href="cookie.html">Cookie Policy</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+document.querySelectorAll('.order-item').forEach(function (item) {
+  var qtyEl = item.querySelector('.js-qty');
+  var minus = item.querySelector('.js-minus');
+  var plus = item.querySelector('.js-plus');
+  var qty = 0;
+
+  minus.addEventListener('click', function () {
+    if (qty > 0) { qty--; qtyEl.textContent = qty; }
+  });
+  plus.addEventListener('click', function () {
+    qty++; qtyEl.textContent = qty;
+  });
+});
+
+var form = document.getElementById('form-ritiro');
+form.addEventListener('submit', function (e) {
+  var righe = [];
+  document.querySelectorAll('.order-item').forEach(function (item) {
+    var qty = parseInt(item.querySelector('.js-qty').textContent, 10);
+    if (qty > 0) {
+      var nome = item.getAttribute('data-product');
+      var variante = item.querySelector('.js-variant').value;
+      righe.push(qty + 'x ' + nome + ' (' + variante + ')');
+    }
+  });
+  document.getElementById('riepilogo_prodotti').value = righe.length
+    ? righe.join(' | ')
+    : 'Nessun prodotto selezionato dalla lista — vedi note';
+
+  e.preventDefault();
+  var data = new FormData(form);
+  fetch('/', { method: 'POST', body: new URLSearchParams(data).toString(), headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+    .then(function () {
+      form.style.display = 'none';
+      document.getElementById('messaggio-conferma').style.display = 'block';
+    })
+    .catch(function () {
+      form.submit();
+    });
+});
+</script>
+
+</body>
+</html>
